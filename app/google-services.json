@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "36928021870",
+    "firebase_url": "https://surveillance-d2ccf.firebaseio.com",
+    "project_id": "surveillance-d2ccf",
+    "storage_bucket": "surveillance-d2ccf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36928021870:android:37f27ca3735e71150a4d7f",
+        "android_client_info": {
+          "package_name": "com.example.surveillance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36928021870-398q4naqlcrnmsi1jmptcug8f26q0tvk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.surveillance",
+            "certificate_hash": "860a7bbce24cafe92c9aa1d6de384a2966c97f4a"
+          }
+        },
+        {
+          "client_id": "36928021870-6nhu3ajt5km2d5sct80v1tljl7dof760.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlCySjuVR4JdwSloGDj6EQ25RxH6OTH6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36928021870-6nhu3ajt5km2d5sct80v1tljl7dof760.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Surveillance</string>
+
+    <string-array name="cities">
+        <item>Choose City</item>
+        <item>Chennai</item>
+        <item>Erode</item>
+        <item>Kancheepuram</item>
+        <item>Madurai</item>
+        <item>Coimbatore</item>
+
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+</resources>
