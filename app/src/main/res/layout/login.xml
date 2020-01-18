@@ -100,6 +100,7 @@
             android:id="@+id/progress1"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:background = "@drawable/progress"
             android:visibility="invisible" />
     </LinearLayout>
 
