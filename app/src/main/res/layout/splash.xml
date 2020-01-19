@@ -21,6 +21,7 @@
             android:minHeight="100dp"
             android:minWidth="100dp"
             android:paddingBottom="20dp"
+            android:id="@+id/splash_logo"
             />
 
         <TextView
@@ -31,6 +32,7 @@
             android:textColor="#FFFFFF"
             android:textSize="34sp"
             android:paddingTop="10dp"
+            android:id="@+id/splash_text"
             />
 
         <TextView

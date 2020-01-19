@@ -22,7 +22,7 @@
         android:textColor="#8b0000"
         android:textAlignment="center"
         android:background="@drawable/viewtext"
-        android:textSize="23dp"
+        android:textSize="28dp"
         android:textStyle="bold" />
 
     <TextView
@@ -36,7 +36,8 @@
         android:text="Violation Name"
         android:background="@drawable/viewtext"
         android:textSize="23dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#000000"/>
 
     <TextView
         android:id="@+id/vnum"
@@ -48,7 +49,8 @@
         android:text="Vehicle Number"
         android:background="@drawable/viewtext"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#000000"/>
 
     <TextView
         android:id="@+id/name"
@@ -59,7 +61,8 @@
         android:text="Name"
         android:textSize="20dp"
         android:background="@drawable/viewtext"
-        android:fontFamily="sans-serif" />
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"/>
 
     <TextView
         android:id="@+id/phno"
@@ -70,7 +73,8 @@
         android:text="Phone Number"
         android:textSize="20dp"
         android:background="@drawable/viewtext"
-        android:fontFamily="sans-serif" />
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"/>
 
         <TextView
             android:id="@+id/addr"
@@ -81,7 +85,31 @@
             android:padding="10dp"
             android:text="Address"
             android:background="@drawable/viewtext"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textColor="#000000"/>
+    <TextView
+        android:id="@+id/start_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="sans-serif"
+        android:padding="10dp"
+        android:text="Start Time"
+        android:background="@drawable/viewtext"
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+    <TextView
+        android:id="@+id/end_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="sans-serif"
+        android:padding="10dp"
+        android:text="End Time"
+        android:background="@drawable/viewtext"
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+
 
     <fragment
         android:id="@+id/map"
@@ -89,7 +117,8 @@
         android:layout_width="382dp"
         android:layout_height="250dp"
         android:layout_marginTop="40dp"
-        tools:context=".MapsActivity" />
+        tools:context=".MapsActivity"
+        />
 
 
 </LinearLayout>
