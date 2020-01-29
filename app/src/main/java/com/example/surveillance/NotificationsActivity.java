@@ -24,7 +24,7 @@ import com.squareup.picasso.Picasso;
 
 public class NotificationsActivity extends AppCompatActivity {
 
-    private RecyclerView mBlogList;
+    private RecyclerView mDetailsList;
     private DatabaseReference mDatabase;
 
        @Override
@@ -34,9 +34,9 @@ public class NotificationsActivity extends AppCompatActivity {
         setContentView(R.layout.card_notifs);
         mDatabase= FirebaseDatabase.getInstance().getReference().child("Global");
         mDatabase.keepSynced(true);
-        mBlogList= findViewById(R.id.myrecyclerview);
-        mBlogList.setHasFixedSize(true);
-        mBlogList.setLayoutManager(new LinearLayoutManager(this));
+        mDetailsList= findViewById(R.id.myrecyclerview);
+        mDetailsList.setHasFixedSize(true);
+        mDetailsList.setLayoutManager(new LinearLayoutManager(this));
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -45,10 +45,10 @@ public class NotificationsActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
-        FirebaseRecyclerAdapter<Blog,BlogViewHolder>firebaseRecyclerAdapter=new FirebaseRecyclerAdapter<Blog, BlogViewHolder>(Blog.class,R.layout.blog_row,BlogViewHolder.class,mDatabase) {
+        FirebaseRecyclerAdapter<Details,DetailsViewHolder>firebaseRecyclerAdapter=new FirebaseRecyclerAdapter<Details, DetailsViewHolder>(Details.class,R.layout.details_row,DetailsViewHolder.class,mDatabase) {
             @Override
-            protected void populateViewHolder(BlogViewHolder viewHolder, Blog model, int i) {
-                final Blog model2=model;
+            protected void populateViewHolder(DetailsViewHolder viewHolder, Details model, int i) {
+                final Details model2=model;
                 viewHolder.setTitle(model.getTitle());
                 viewHolder.setDesc(model.getDesc());
                 viewHolder.setImage(getApplicationContext(),model.getImage());
@@ -57,7 +57,14 @@ public class NotificationsActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Bundle bundle=new Bundle();
                         bundle.putString("title",model2.getTitle());
-                        bundle.putString("desc",model2.getDesc());
+                        bundle.putFloat("lat",model2.getLat());
+                        bundle.putFloat("lon",model2.getLon());
+                        bundle.putString("vnum",model2.getVnum());
+                        bundle.putString("name",model2.getName());
+                        bundle.putString("number",model2.getNumber());
+                        bundle.putString("address",model2.getAddress());
+                        bundle.putString("start_time",model2.getStart_time());
+                        bundle.putString("end_time",model2.getEnd_time());
                         Intent i = new Intent(NotificationsActivity.this,MapsActivity.class);
                         i.putExtras(bundle);
                         startActivity(i);
@@ -65,14 +72,14 @@ public class NotificationsActivity extends AppCompatActivity {
                 });
             }
         };
-        mBlogList.setAdapter(firebaseRecyclerAdapter);
+        mDetailsList.setAdapter(firebaseRecyclerAdapter);
 
         }
 
     @Override
     public void onBackPressed(){
         final AlertDialog.Builder builder = new AlertDialog.Builder(NotificationsActivity.this);
-        builder.setMessage("Are you sure you want to exit?");
+        builder.setMessage("Are you sure you want to logout?");
         builder.setCancelable(true);
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
@@ -83,6 +90,8 @@ public class NotificationsActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
                 finish();
             }
         });
@@ -91,16 +100,31 @@ public class NotificationsActivity extends AppCompatActivity {
     }
 
     public void logout(View view) {
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(),LoginActivity.class));
-        Animatoo.animateShrink(NotificationsActivity.this);
-        finish();
+        final AlertDialog.Builder builder = new AlertDialog.Builder(NotificationsActivity.this);
+        builder.setMessage("Are you sure you want to logout?");
+        builder.setCancelable(true);
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                finish();
+            }
+        });
+        AlertDialog ad = builder.create();
+        ad.show();
     }
 
-        public static  class BlogViewHolder extends RecyclerView.ViewHolder{
+        public static  class DetailsViewHolder extends RecyclerView.ViewHolder{
         View mView;
         Button b;
-        public BlogViewHolder(View itemView)
+        public DetailsViewHolder(View itemView)
         {
             super(itemView);
             mView=itemView;

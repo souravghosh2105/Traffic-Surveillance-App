@@ -2,50 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="@drawable/bg">
-
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
-        android:background="#3f51b5"
-        android:paddingBottom="6dp"
-        android:layout_marginTop="6dp"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:paddingLeft="2dp"
-                android:textSize="24sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NOTIFICATIONS"
-                android:layout_weight="1"
-                android:textColor="#ffffff"/>
-
-            <Button
-                android:id="@+id/logout"
-                android:layout_width="98dp"
-                android:layout_height="35dp"
-                android:layout_margin="5dp"
-                android:onClick="logout"
-                android:background="@drawable/button"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:text="log out"
-                android:layout_gravity="right"
-                android:layout_marginRight="12dp"
-                android:textSize="19dp"
-                android:textAllCaps="true"
-                android:textColor="#B4305F"
-                />
-
-
-        </LinearLayout>
-    </androidx.appcompat.widget.Toolbar>
-
-
+    <include layout="@layout/toolbar"/>
 
     <androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"
